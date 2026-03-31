@@ -101,24 +101,39 @@ def run_tcp_server():
 
 # ----- SERVIDOR HTTP (ESTADO) ----- #
 class StatusHandler(http.server.BaseHTTPRequestHandler):
-    def do_GET(self):
-        if self.path == '/status':
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            
-            with lock:
-                status = {
-                    "usuarios_conectados": list(clientes.values()),
-                    "total": len(clientes),
-                    "historial": historial[-10:] # Últimos 10 mensajes
-                }
-            self.wfile.write(json.dumps(status).encode('utf-8'))
-        else:
-            self.send_error(404, "Ruta no encontrada. Prueba /status")
 
-    # Desactivar logs por consola de HTTP para no ensuciar
-    def log_message(self, format, *args): return
+    def do_GET(self):
+        # Usamos el lock para que nadie modifique los mensajes mientras los leemos
+        with lock:
+            if self.path == '/history':
+                # Preparamos los datos con formato JSON. Mostraremos los ultimos 10 mensajes. Recordemos que la cantidad es arbitraria.
+                respuesta_datos = {"history": historial[-10:]}
+                self.enviar_json_manual(200,respuesta_datos)
+
+            elif self.path == '/users':
+                # Obtenemos la lista de nombres de los clientes conectados
+                respuesta_datos = {"users": list(clientes.values())}
+                self.enviar_json_manual(200,respuesta_datos)
+
+            else:
+                # Aca cae cuando la ruta no existe.
+                self.send_error(404, "Ruta galáctica no encontrada")
+    
+    def enviar_json_manual(self,codigo,datos):
+        # Funcion para cumplir con el envio manual de los headers
+        # Convertimos los datos a texto JSON y luego Bytes
+        cuerpo_respuesta = json.dumps(datos).encode('utf-8')
+
+        # Enviamos la linea de estado 200 OK.
+        self.send_response(codigo)
+
+        # Enviamos los headers que exige el lab
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(cuerpo_respuesta)))
+        self.end_headers() # Salto de linea anashe
+
+        # Enviamos le contenido real
+        self.wfile.write(cuerpo_respuesta)
 
 def run_http_server():
     server = http.server.HTTPServer(('0.0.0.0', PUERTO_HTTP), StatusHandler)

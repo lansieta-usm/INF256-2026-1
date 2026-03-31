@@ -1,0 +1,11 @@
+Desde ('127.0.0.1', 57252): [2026-03-30 20:53:10] - CONNECT - NICK basti desde ('127.0.0.1', 42008)
+Desde ('127.0.0.1', 53856): [2026-03-30 20:53:15] - MSG - Mensaje de NICK basti
+Desde ('127.0.0.1', 34281): [2026-03-30 20:53:31] - MSG - Mensaje de NICK basti
+Desde ('127.0.0.1', 51933): [2026-03-30 20:53:36] - MSG - Mensaje de NICK basti
+Desde ('127.0.0.1', 38979): [2026-03-30 20:53:54] - DISCONNECT - NICK basti
+Desde ('127.0.0.1', 46699): [2026-03-30 21:10:33] - CONNECT - NICK Basti desde ('127.0.0.1', 50816)
+Desde ('127.0.0.1', 39294): [2026-03-30 21:10:35] - ERROR - Comando desconocido de NICK Basti: ola
+Desde ('127.0.0.1', 50888): [2026-03-30 21:10:37] - MSG - Mensaje de NICK Basti
+Desde ('127.0.0.1', 38857): [2026-03-30 21:10:40] - MSG - Mensaje de NICK Basti
+Desde ('127.0.0.1', 34773): [2026-03-30 21:10:43] - MSG - Mensaje de NICK Basti
+Desde ('127.0.0.1', 58107): [2026-03-30 21:10:49] - DISCONNECT - NICK Basti

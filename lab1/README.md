@@ -22,6 +22,3 @@ Al ejecutar ```make run``` se les abrirán 3 pestañas de terminal:
 Con la pestaña de terminal que siga **Cliente TCP**... Ese es el chat.
 
 Cuando se realicen acciones en el Cliente TCP, éstas se verán reflejadas en la terminal del **Servidor UDP**, esto significa que si desde el Cliente TCP hago algo como ```NICK nickname```, en el Servidor UDP aparecerá el log que diga que ```nickname``` se acaba de conectar.
-
-### Funciona en Windows?
-No tengo ni puta idea, testeé la wea en macOS nomás, si no funciona, mala cuea XD.
