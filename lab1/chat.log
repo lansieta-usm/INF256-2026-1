@@ -9,3 +9,16 @@ Desde ('127.0.0.1', 50888): [2026-03-30 21:10:37] - MSG - Mensaje de NICK Basti
 Desde ('127.0.0.1', 38857): [2026-03-30 21:10:40] - MSG - Mensaje de NICK Basti
 Desde ('127.0.0.1', 34773): [2026-03-30 21:10:43] - MSG - Mensaje de NICK Basti
 Desde ('127.0.0.1', 58107): [2026-03-30 21:10:49] - DISCONNECT - NICK Basti
+Desde ('127.0.0.1', 47294): [2026-03-31 00:08:51] - CONNECT - GermanZopico desde ('127.0.0.1', 40930)
+Desde ('127.0.0.1', 48860): [2026-03-31 00:09:04] - MSG - Mensaje de GermanZopico
+Desde ('127.0.0.1', 59927): [2026-03-31 20:57:21] - CONNECT - papu1 desde ('127.0.0.1', 45748)
+Desde ('127.0.0.1', 32998): [2026-03-31 20:57:31] - CONNECT - papu2 desde ('127.0.0.1', 41220)
+Desde ('127.0.0.1', 57243): [2026-03-31 20:57:49] - MSG - Mensaje de papu2
+Desde ('127.0.0.1', 35052): [2026-03-31 21:21:38] - DISCONNECT - papu1
+Desde ('127.0.0.1', 37221): [2026-03-31 21:21:44] - DISCONNECT - papu2
+Desde ('127.0.0.1', 41955): [2026-03-31 21:30:35] - CONNECT - Papuonline1 desde ('127.0.0.1', 44656)
+Desde ('127.0.0.1', 32996): [2026-03-31 21:35:35] - DISCONNECT - Papuonline1
+Desde ('127.0.0.1', 58168): [2026-03-31 21:36:08] - CONNECT - papuonline2 desde ('127.0.0.1', 48346)
+Desde ('127.0.0.1', 50299): [2026-03-31 21:36:14] - MSG - Mensaje de papuonline2
+Desde ('127.0.0.1', 46109): [2026-03-31 21:37:34] - CONNECT - papuonline1 desde ('127.0.0.1', 35966)
+Desde ('127.0.0.1', 60953): [2026-03-31 21:37:39] - MSG - Mensaje de papuonline1

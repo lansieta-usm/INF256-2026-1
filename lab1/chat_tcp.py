@@ -117,7 +117,18 @@ class StatusHandler(http.server.BaseHTTPRequestHandler):
 
             else:
                 # Aca cae cuando la ruta no existe.
-                self.send_error(404, "Ruta galáctica no encontrada")
+                self.enviar_json_manual(404, {"error": "Ruta galactica no encontrada"})
+
+    def send_error(self, code, message=None, explain=None):
+        # Usamos JSON solo para solicitudes malformadas, manteniendo el 404 manual.
+        if code == 400:
+            respuesta_datos = {
+                "error": message or "Solicitud malformada"
+            }
+            self.enviar_json_manual(code, respuesta_datos)
+            return
+
+        super().send_error(code, message, explain)
     
     def enviar_json_manual(self,codigo,datos):
         # Funcion para cumplir con el envio manual de los headers
