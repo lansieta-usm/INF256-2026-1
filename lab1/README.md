@@ -12,7 +12,7 @@ Este laboratorio implementa un sistema de chat compuesto por tres partes:
 - Un servidor UDP que recibe y guarda los logs.
 - Un cliente que permite participar en el chat y consultar el estado del servidor.
 
-El servidor TCP maneja los comandos del chat y la lógica del encío de mensajes; el servidor HTTP expone consultas de solo lectura y el servidor UDP registra eventos como conexiones, mensajes, desconexiones y errores.
+El servidor TCP maneja los comandos del chat y la lógica del envío de mensajes; el servidor HTTP expone consultas de solo lectura y el servidor UDP registra eventos como conexiones, mensajes, desconexiones y errores.
 
 ## Archivos principales
 - `chat_tcp.py`: Servidor principal. Levanta el chat TCP en el puerto `6000` y la API HTTP en el puerto `8080`.
