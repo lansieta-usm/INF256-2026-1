@@ -23,7 +23,7 @@ El servidor TCP maneja los comandos del chat y la lógica del envío de mensajes
 ## Disclaimers antes de la ejecución
 1. La ejecución de la presente tarea tiene dos formas distintas de realizarse, pues, ésta depende si el equipo va a actuar como **cliente** o como **servidor**.
 2. Para la ejecución en modo servidor se utiliza **ngrok**, para hacer uso de todas las funciones que la tarea necesita, se requiere tener una cuenta verificada en el sitio. Lo anterior puede requerir la inscripción de una tarjeta bancaria con el fin de verificar la cuenta. OJO: No se realizará ningún cobro, el registro de la tarjeta es únicamente para verificar la cuenta. No tenemos certeza de que esto ocurra en el 100% de los casos, pero al menos a nosotros, durante el desarrollo de la tarea, tuvimos que hacer registro de una tarjeta bancaria para poder acceder a las funciones de ngrok que la tarea requería.
-3. Vamos a definir una constante que será útil en la ejecución en modo **servidor**: `PUERTO_TCP`, de valor `6000`.
+3. Vamos a definir dos constantes que serán útiles en la ejecución en modo **servidor**: `PUERTO_TCP`, de valor `6000`; y `PUERTO_HTTP`, de valor `8080`.
 
 ## Instrucciones de ejecución
 
