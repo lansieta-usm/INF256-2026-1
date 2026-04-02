@@ -5,7 +5,7 @@
 - Bastian Garces C. - 202373510-8
 - Benjamin Palacios T. - 202373532-9
 
-## Descripcion general
+## Descripción general
 Este laboratorio implementa un sistema de chat compuesto por tres partes:
 
 - Un servidor principal que levanta el chat TCP y la API HTTP.
