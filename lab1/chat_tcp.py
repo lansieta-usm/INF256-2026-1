@@ -104,20 +104,41 @@ def run_tcp_server(): # Pone a correr el servidor TCP
 # ----- SERVIDOR HTTP (ESTADO) ----- #
 class StatusHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path == '/status':
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            
+        if self.path == '/history':
             with lock:
-                status = {
+                respuesta = {"history": historial[-10:]}
+            self.enviar_json_manual(200, respuesta)
+
+        elif self.path == '/users':
+            with lock:
+                respuesta = {"users": list(clientes.values())}
+            self.enviar_json_manual(200, respuesta)
+
+        elif self.path == '/status':
+            with lock:
+                respuesta = {
                     "usuarios_conectados": list(clientes.values()),
                     "total": len(clientes),
-                    "historial": historial[-10:] # Últimos 10 mensajes
+                    "historial": historial[-10:]
                 }
-            self.wfile.write(json.dumps(status).encode('utf-8'))
+            self.enviar_json_manual(200, respuesta)
         else:
-            self.send_error(404, "Ruta no encontrada. Prueba /status")
+            self.enviar_json_manual(404, {"error": "Ruta galactica no encontrada"})
+
+    def send_error(self, code, message=None, explain=None):
+        if code == 400:
+            self.enviar_json_manual(400, {"error": message or "Solicitud malformada"})
+            return
+
+        super().send_error(code, message, explain)
+
+    def enviar_json_manual(self, codigo, datos):
+        cuerpo_respuesta = json.dumps(datos).encode('utf-8')
+        self.send_response(codigo)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(cuerpo_respuesta)))
+        self.end_headers()
+        self.wfile.write(cuerpo_respuesta)
 
     # Desactivar logs por consola de HTTP para no ensuciar
     def log_message(self, format, *args): return
