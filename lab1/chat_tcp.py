@@ -34,7 +34,7 @@ def broadcast(message, exclude_conn=None): # Envía un mensaje público (a todo 
                     del clientes[conn]
 
 # ----- SERVIDOR TCP (CHAT) ----- #
-def handle_tcp_client(conn, addr): # Función que contiene el backend de cada comando
+def handle_tcp_client(conn, addr): # Función que contiene el backend de cada comando del servidor TCP
     nickname = None
     try:
         while True:

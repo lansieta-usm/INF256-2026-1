@@ -28,13 +28,10 @@ Dentro de la carpeta `lab1`, ejecutar:
 make run
 ```
 
-Esto abre tres terminales:
+Esto abre dos terminales:
 
 1. Servidor UDP de logs.
 2. Servidor principal TCP + HTTP.
-3. Cliente del chat.
-
-La ventana con la que se interactua directamente es la del cliente.
 
 ### Opcion 2: ejecucion manual
 Tambien se puede levantar cada componente por separado:
@@ -155,38 +152,44 @@ python3 cliente.py <tcp_host> <tcp_port>
 Modo con host y puerto TCP, mas host y puerto HTTP:
 
 ```bash
-python3 cliente.py <tcp_host> <tcp_port> <http_host> <http_port> [http|https]
+python3 cliente.py <tcp_host> <tcp_port> <http_host> <http_port>
 ```
 
 Ejemplo:
 
 ```bash
-python3 cliente.py 0.tcp.ngrok.io 12345 ejemplo.ngrok-free.dev 443 https
+python3 cliente.py 127.0.0.1 6000 127.0.0.1 8080
 ```
 
-Esto permite mantener el chat TCP y las consultas HTTP apuntando a destinos distintos, lo que nos sirvio para las pruebas del componente de exposicion publica.
+Esto permite mantener el chat TCP y las consultas HTTP apuntando a destinos distintos segun como se quiera levantar la prueba.
 
 ## Exposicion publica con ngrok
-Para exponer la API HTTP de forma publica se utilizo `ngrok` sobre el puerto `8080`.
+Para exponer servicios de forma publica se utilizo `ngrok`. En nuestras pruebas se levanto el tunel HTTP sobre el puerto `8080`, y cuando se requiere probar el chat desde otra red tambien se puede levantar un tunel TCP sobre el puerto `6000`.
 
-Ejemplo:
+Ejemplos:
 
 ```bash
 ngrok http 8080
 ```
 
-Una vez levantado, `ngrok` entrega una URL publica del tipo:
+```bash
+ngrok tcp 6000
+```
+
+Una vez levantado, `ngrok` entrega una direccion publica para cada caso. Para la parte HTTP entrega una URL del tipo:
 
 ```text
 https://xxxxx.ngrok-free.dev
 ```
 
-Con esa URL se pueden probar las rutas:
+Y para la parte TCP entrega una direccion del tipo:
 
-```bash
-curl https://xxxxx.ngrok-free.dev/users
-curl https://xxxxx.ngrok-free.dev/history
+```text
+tcp://0.tcp.ngrok.io:12345
 ```
 
-## Comentario final
-En las pruebas locales, las acciones que se realizan en el cliente se reflejan inmediatamente en la terminal del servidor UDP, que es donde se observan los logs del sistema.
+Con esa direccion publica del chat, otro cliente puede conectarse de forma remota usando:
+
+```bash
+python3 cliente.py 0.tcp.ngrok.io 12345
+```
