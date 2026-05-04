@@ -15,15 +15,15 @@ Este desarrollo consiste en una implementación práctica de un sistema de resol
 
 ### Servidor DNS
 Desde una terminal limpia, ejecutamos:
-    ```bash
-    python3 DNS_server.py
-    ```
+```bash
+python3 DNS_server.py
+```
 
 ### Cliente
 Abrimos una segunda terminal y ejecutamos:
-    ```bash
-    python3 App_client.py
-    ```
+```bash
+python3 App_client.py
+```
 
 ## Consideraciones adicionales
 -   **Puerto 53:** El uso del puerto `53` (DNS estándar) puede requerir permisos de administrador (`sudo` en Linux/macOS o `Ejecutar como Administrador` en Windows).
