@@ -29,3 +29,4 @@ python3 App_client.py
 -   **Puerto 53:** El uso del puerto `53` (DNS estándar) puede requerir permisos de administrador (`sudo` en Linux/macOS o `Ejecutar como Administrador` en Windows).
 -   **Alineación de Puertos:** Se debe verificar que la variable `PUERTO_DNS` en el servidor y `DNS_PORT` en el cliente coincidan.
 -   **Handshake TCP:** Para que la segunda parte del cliente (`sock_tcp.connect`) sea exitosa, debe existir un servicio (como un servidor web o un socket escuchando) en la IP de destino en el puerto 80.
+-   **Archivos `.pcapng`:** Estos archivos corresponden a evidencia de que el grupo estuvo presente durante la experiencia presencial, pues el contenido de éstos representa todos los paquetes capturados durante la ejecución del laboratorio.
